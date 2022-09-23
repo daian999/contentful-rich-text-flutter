@@ -13,6 +13,7 @@ import 'package:contentful_rich_text/widgets/list_item.dart';
 import 'package:contentful_rich_text/widgets/ordered_list.dart';
 import 'package:contentful_rich_text/widgets/paragraph.dart';
 import 'package:contentful_rich_text/widgets/unordered_list.dart';
+import 'package:contentful_rich_text/widgets/embedd_asset.dart';
 import 'package:flutter/material.dart';
 import 'package:html_unescape/html_unescape_small.dart';
 
@@ -70,6 +71,7 @@ class ContentfulRichText {
         ),
     BLOCKS.QUOTE.value: (node, next) => Container(), // TODO: implement
     BLOCKS.HR.value: (node, next) => Hr(),
+    BLOCKS.EMBEDDED_ASSET.value: (node, next) => EmbeddAsset(node, next),
     INLINES.ASSET_HYPERLINK.value: (node, next) =>
         _defaultInline(INLINES.ASSET_HYPERLINK, node as Inline),
     INLINES.ENTRY_HYPERLINK.value: (node, next) =>
